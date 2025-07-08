@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Chat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-300 min-h-screen flex items-center justify-center p-4">
+    <nav class="w-full fixed top-0 left-0 px-5 py-3">
+        <h3 class="font-['helvetica_now_display'] text-2xl text-blue-600">QuickChat</h3>
+    </nav>
+    <div class="w-full max-w-md bg-white rounded-xl shadow-md overflow-hidden p-6">
+        <h2 class="text-2xl font-bold text-center text-blue-600 mb-6">
+            <i class="fas fa-edit mr-2"></i>Edit Your Message
+        </h2>
+        
+        <form method="post" action="/chats/<%=chat._id%>?_method=put" class="space-y-4">
+            <div class="bg-blue-50 p-4 rounded-lg text-center">
+                <p>This message was sent from <b class="text-blue-600"><%=chat.from%></b> to <b class="text-green-600"><%=chat.to%></b></p>
+            </div>
+            
+            <div>
+                <label class="block text-gray-700 font-medium mb-2">Message Content</label>
+                <textarea name="message" rows="10"
+                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"><%=chat.message%></textarea>
+            </div>
+            
+            <div class="pt-2">
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200">
+                    <i class="fas fa-save mr-2"></i>Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
